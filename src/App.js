@@ -1,3 +1,35 @@
+// import React, { Component } from "react";
+// import SeasonDisplay from './SeasonDisplay';
+
+// class App extends Component {
+//   state = {
+//     lat: null,
+//     long: null,
+//     errorMessage: ''
+//   }
+
+//   componentDidMount() {
+//     window.navigator.geolocation.getCurrentPosition(
+//       // (position) => console.log(position),
+//       (position) =>
+//         this.setState({
+//           lat: position.coords.latitude,
+//         }),
+//       (err) => {
+//         this.setState({ errorMessage: err.message });
+//       }
+//     );
+//   }
+
+//   render() {
+//     return (
+//       <SeasonDisplay lat={this.state.lat}/>
+//     )
+//   }
+// }
+
+// export default App;
+
 import React, { Component } from "react";
 
 class App extends Component {
@@ -55,14 +87,12 @@ class App extends Component {
         {newName.length ? (
           <div>
             <span role="img" aria-label="smile">
-              {" "}
               😀{" "}
             </span>
             Hello {newName}
           </div>
         ) : (
           <span role="img" aria-label="smile">
-            {" "}
             😀{" "}
           </span>
         )}
@@ -70,7 +100,7 @@ class App extends Component {
           {names.map((name, i) => (
             <li key={name.id}>
               {name.newName}
-              <button onClick={this.removeName}> X</button>
+              <button onClick={() => this.removeName(name)}> X</button>
             </li>
           ))}
         </ul>
